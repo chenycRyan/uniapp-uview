@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "登录页",
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "login-mobile": "/pages/login/components/loginMobile",
+    "login-account": "/pages/login/components/loginAccount"
+  }
+}
