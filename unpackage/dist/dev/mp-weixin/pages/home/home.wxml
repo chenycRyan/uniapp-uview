@@ -1,1 +1,0 @@
-<block wx:if="{{false}}"><view class="home data-v-92bb8f34"><view class="home-top data-v-92bb8f34"></view><view class="home-content data-v-92bb8f34"></view></view></block><block wx:else><home-skeleton vue-id="1da55560-1" class="data-v-92bb8f34" bind:__l="__l"></home-skeleton></block>

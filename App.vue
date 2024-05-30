@@ -1,53 +1,34 @@
 <script>
-// #ifdef APP-PLUS
-const openIM = uni.requireNativePlugin("Tuoyun-OpenIMSDK");
-const event = uni.requireNativePlugin("globalEvent");
+  import config from './config'
+  import store from '@/store'
+  import { getToken } from '@/utils/auth'
 
-console.log("openIM: ", openIM, event);
-// #endif
-export default {
-  onLaunch: function () {
-    const IS_FIRST = uni.getStorageSync("isFirst"); // 是否第一次进入
-
-    // 1.1 如果是第一次进页面，则去引导页
-    if (!IS_FIRST) {
-      uni.reLaunch({
-        url: "/pages/guidePage/guidePage",
-      });
-      return;
+  export default {
+    onLaunch: function() {
+      this.initApp()
+    },
+    methods: {
+      // 初始化应用
+      initApp() {
+        // 初始化应用配置
+        this.initConfig()
+        // 检查用户登录状态
+        //#ifdef H5
+        this.checkLogin()
+        //#endif
+      },
+      initConfig() {
+        this.globalData.config = config
+      },
+      checkLogin() {
+        if (!getToken()) {
+          this.$tab.reLaunch('/pages/login') 
+        }
+      }
     }
-  },
-
-  onShow: function () {
-    console.log(this.$store);
-
-    console.log("App Show");
-  },
-
-  onHide: function () {
-    console.log("App Hide");
-  },
-  onPageNotFound: function () {
-    // 路由不匹配跳转404
-    uni.navigateTo({
-      url: "/pages/404/404",
-    });
-  },
-};
+  }
 </script>
 
 <style lang="scss">
-@import "colorui/main.css";
-@import "colorui/icon.css";
-@import "colorui/animation.css";
-/* uview-ui样式 */
-@import "@/uni_modules/uview-ui/index.scss";
-/* 引入iconfont */
-@import "@/static/icon/iconfont.css";
-/*每个页面公共css */
-@import "@/uni_modules/uni-scss/index.scss";
-page {
-  // height: 100%;
-  background: transparent;
-}
+  @import '@/static/scss/index.scss'
 </style>

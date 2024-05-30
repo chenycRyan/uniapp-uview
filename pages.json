@@ -1,134 +1,120 @@
 {
-	// 如果您是通过uni_modules形式引入uView，可以忽略此配置
-	"easycom": {
-		"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
-	},
-	// 页面路由
-	"pages": [
-		{
-			"path": "pages/home/home",
-			"name":"home",
-			"style": {
-				"navigationBarTitleText": "首页",
-				"navigationStyle": "custom", // 去掉顶部导航
-				"enablePullDownRefresh": true
-			}
-		},
-		{
-			"path": "pages/mine/mine",
-			"name":"mine",
-			"style": {
-				"navigationBarTitleText": "个人中心",
-				"enablePullDownRefresh": false
-			}
-
-		}, {
-			"path": "pages/webView/webView",
-			"name":"webView",
-			"style": {
-				"navigationBarTitleText": "H5页面",
-				"navigationStyle": "custom", // 去掉顶部导航
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/guidePage/guidePage",
-			"name":"guidePage",
-			"style": {
-				"navigationBarTitleText": "引导页",
-				"enablePullDownRefresh": false,
-				"navigationStyle": "custom" // 去掉顶部导航
-			}
-		},{
-			"path": "pages/login/login",
-			"name":"login",
-			"style": {
-				"navigationBarTitleText": "登录页",
-				"navigationStyle": "custom", // 去掉顶部导航
-				"enablePullDownRefresh": false // 是否下拉刷新
-			}
-
-		},{
-			"path": "pages/404/404",
-			"name":"404",
-			"style": {
-				"navigationBarTitleText": "404",
-				"enablePullDownRefresh": false
-			}
-
-		},
-		{
-			"path": "pages/versionUpdate/versionUpdate",
-			"name":"versionUpdate",
-			"style": {
-				"navigationBarTitleText": "APP更新",
-				"navigationStyle": "custom",
-				"app-plus": {
-					"background": "transparent",
-					"webviewBGTransparent": true, //webview的背景是否透明//配合background属性防止跳转闪白
-					"popGesture": "none" //禁止侧滑关闭（ios）
-				}
-			}
-		}
-		
-	],
-
-	//分包加载配置，此配置为小程序的分包加载机制
-	"subPackages": [{
-		"root": "subpages", //子包的根目录
-		//配置页面路径，这里要注意，因为root已经选中了文件夹，所以我们只要填写文件名就好
-		"pages": [{
-			"path": "test",
-			"name":"test",
-			"style": {
-				"navigationBarTitleText": "分包test页面",
-				"enablePullDownRefresh": false
-			}
-		}]
-	}],
-	// 分包预载配置
-	"preloadRule": {
-		// 当我们进入了pages/home/home页面以后就会预下载subpages分包
-		"pages/home/home": {
-			"network": "all", // 在指定网络下预下载，可选值为：all（不限网络）、wifi（仅wifi下预下载）
-			"packages": ["__APP__"] // 进入页面后预下载分包
-		}
-	},
-
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8",
-		"app-plus": {
-			"background": "#efeff4"
-		}
-	},
-
-	// 底部tabbar切换导航
-	"tabBar": {
-		"color": "#999999",
-		"selectedColor": "#3590e1",
-		"backgroundColor": "#FFFFFF",
-		"borderStyle": "white",
-		"list": [{
-			"iconPath": "static/images/icon_home_nochecked.png",
-			"selectedIconPath": "static/images/icon_home_checked.png",
-			"pagePath": "pages/home/home",
-			"name":"home",
-			"text": "首页"
-		}, {
-			"iconPath": "static/images/icon_shenpi_nochecked.png",
-			"selectedIconPath": "static/images/icon_shenpi_checked.png",
-			"pagePath": "pages/webView/webView",
-			"name":"webView",
-			"text": "H5"
-		}, {
-			"iconPath": "static/images/icon_mine_nochecked.png",
-			"selectedIconPath": "static/images/icon_mine_checked.png",
-			"pagePath": "pages/mine/mine",
-			"name":"mine",
-			"text": "我的"
-		}]
-	}
+  "pages": [
+      {
+          "path": "pages/login",
+          "style": {
+              "navigationBarTitleText": "登录"
+          }
+      },
+      {
+          "path": "pages/register",
+          "style": {
+              "navigationBarTitleText": "注册"
+          }
+      },
+      {
+          "path": "pages/index",
+          "style": {
+              "navigationBarTitleText": "教师管理平台框架",
+              "navigationStyle": "custom"
+          }
+      },
+      {
+          "path": "pages/work/index",
+          "style": {
+              "navigationBarTitleText": "工作台"
+          }
+      },
+      {
+          "path": "pages/mine/index",
+          "style": {
+              "navigationBarTitleText": "我的"
+          }
+      },
+      {
+          "path": "pages/mine/avatar/index",
+          "style": {
+              "navigationBarTitleText": "修改头像"
+          }
+      },
+      {
+          "path": "pages/mine/info/index",
+          "style": {
+              "navigationBarTitleText": "个人信息"
+          }
+      },
+      {
+          "path": "pages/mine/info/edit",
+          "style": {
+              "navigationBarTitleText": "编辑资料"
+          }
+      },
+      {
+          "path": "pages/mine/pwd/index",
+          "style": {
+              "navigationBarTitleText": "修改密码"
+          }
+      },
+      {
+          "path": "pages/mine/setting/index",
+          "style": {
+              "navigationBarTitleText": "应用设置"
+          }
+      },
+      {
+          "path": "pages/mine/help/index",
+          "style": {
+              "navigationBarTitleText": "常见问题"
+          }
+      },
+      {
+          "path": "pages/mine/about/index",
+          "style": {
+              "navigationBarTitleText": "关于我们"
+          }
+      },
+      {
+          "path": "pages/common/webview/index",
+          "style": {
+              "navigationBarTitleText": "浏览网页"
+          }
+      },
+      {
+          "path": "pages/common/textview/index",
+          "style": {
+              "navigationBarTitleText": "浏览文本"
+          }
+      }
+  ],
+  "tabBar": {
+      "color": "#000000",
+      "selectedColor": "#000000",
+      "borderStyle": "white",
+      "backgroundColor": "#ffffff",
+      "list": [
+          {
+              "pagePath": "pages/index",
+              "iconPath": "static/images/tabbar/home.png",
+              "selectedIconPath": "static/images/tabbar/home_.png",
+              "text": "首页"
+          },
+          {
+              "pagePath": "pages/work/index",
+              "iconPath": "static/images/tabbar/work.png",
+              "selectedIconPath": "static/images/tabbar/work_.png",
+              "text": "工作台"
+          },
+          {
+              "pagePath": "pages/mine/index",
+              "iconPath": "static/images/tabbar/mine.png",
+              "selectedIconPath": "static/images/tabbar/mine_.png",
+              "text": "我的"
+          }
+      ]
+  },
+  "globalStyle": {
+      "navigationBarTextStyle": "black",
+      "navigationBarTitleText": "RuoYi",
+      "navigationBarBackgroundColor": "#FFFFFF"
+  }
 }

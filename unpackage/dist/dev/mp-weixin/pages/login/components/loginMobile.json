@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "u-input": "/uni_modules/uview-ui/components/u-input/u-input",
-    "u-code": "/uni_modules/uview-ui/components/u-code/u-code",
-    "u-button": "/uni_modules/uview-ui/components/u-button/u-button"
-  },
-  "component": true
-}

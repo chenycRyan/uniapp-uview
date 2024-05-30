@@ -1,22 +1,15 @@
-/**
- * @description 导入所有 vuex 模块，自动加入namespaced:true，用于解决vuex命名冲突，请勿修改。
- */
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
+import user from '@/store/modules/user'
+import getters from './getters'
 
-Vue.use(Vuex);
-
-const modules = {};
-const files = require.context("./modules", false, /\.js$/);
-
-files.keys().forEach((key) => {
-  modules[key.replace(/(modules|\/|\.|js)/g, "")] = {
-    ...files(key).default,
-    namespaced: true,
-  };
-});
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  modules,
-});
-export default store;
+  modules: {
+    user
+  },
+  getters
+})
+
+export default store
